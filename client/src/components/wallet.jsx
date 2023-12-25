@@ -58,7 +58,7 @@ const Main = () => {
 
   useEffect(() => {
     const connectMetamaskAndSmartContract = async () => {
-      const contractAddress = "0x5B5D6eBcD4d020a9b2c713b6147bDe24b336D337";
+      const contractAddress = "0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512";
       const contractAbi = abi.abi;
 
       try {

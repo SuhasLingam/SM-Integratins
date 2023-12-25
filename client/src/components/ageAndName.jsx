@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { ethers } from "ethers";
 
 const ageAndName = ({ state }) => {
   const { contract } = state;
@@ -7,6 +8,8 @@ const ageAndName = ({ state }) => {
 
   const [newName, setNewName] = useState("Yet To Update");
   const [newAge, setNewAge] = useState(0);
+
+  const [bal, setBal] = useState(0);
 
   const GetNameVar = async () => {
     const tx = await contract.name();
@@ -29,6 +32,13 @@ const ageAndName = ({ state }) => {
     await tx.wait();
     const newAge = await contract.age();
     setNewAge(parseInt(newAge));
+  };
+
+  const getBalance = async () => {
+    const tx = await contract.getBal();
+    await tx.wait();
+    console.log(tx);
+    setBal(tx);
   };
 
   return (
@@ -72,6 +82,15 @@ const ageAndName = ({ state }) => {
             Update Age
           </button>
           <p>Updated Age is : {newAge} </p>
+        </div>
+        <div>
+          <button
+            onClick={getBalance}
+            className="bg-zinc-950 rounded-xl text-white p-4 "
+          >
+            Balance
+          </button>
+          <p>The Balance is : {bal} </p>
         </div>
       </div>
     </>
