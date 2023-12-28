@@ -1,5 +1,4 @@
 const hre = require("hardhat");
-
 async function main() {
   const GetNameAndAge = await hre.ethers.getContractFactory("NameAndAge");
   const getNameAndAge = await GetNameAndAge.deploy();
