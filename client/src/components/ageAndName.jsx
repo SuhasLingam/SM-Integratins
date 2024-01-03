@@ -6,7 +6,7 @@ const ageAndName = ({ state }) => {
   const [name, SetName] = useState("Click Button to Display");
   const [age, SetAge] = useState(0);
 
-  const [newName, setNewName] = useState("Yet To Update");
+  const [newName, setNewName] = useState("Not Yet");
   const [newAge, setNewAge] = useState(0);
 
   const [bal, setBal] = useState(0);
